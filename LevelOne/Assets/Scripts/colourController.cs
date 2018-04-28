@@ -66,6 +66,36 @@ using System.Collections.Generic;
         Fade();
     }
 
+    public void FadeOut()
+    {
+        if (!fadeOut)
+        {
+            fadeIn = false;
+            fadeOut = true;
+            startTime = Time.time;
+        }
+    }
+
+    public void FadeIn()
+    {
+        if (!fadeIn)
+        {
+            fadeOut = false;
+            fadeIn = true;
+            startTime = Time.time;
+        }
+    }
+
+    public void StartShake()
+    {
+        if (!shake)
+        {
+            shake = true;
+            shakeCount = 0;
+            startTime = Time.time;
+        }
+    }
+
     private void Shake()
     {
         float t = Time.time - startTime;
@@ -79,12 +109,12 @@ using System.Collections.Generic;
 
         if(shakeCount%8 == 0)
         {
-            transform.Translate(Vector2.right * 0.2f);
-            transform.Translate(Vector2.up * 0.1f);
+            transform.Translate(Vector2.right * 0.1f);
+            transform.Translate(Vector2.up * 0.05f);
         } else if (shakeCount%4 == 0)
         {
-            transform.Translate(Vector2.left * 0.2f);
-            transform.Translate(Vector2.down * 0.1f);
+            transform.Translate(Vector2.left * 0.1f);
+            transform.Translate(Vector2.down * 0.05f);
         }
         shakeCount++;
 
@@ -119,4 +149,11 @@ using System.Collections.Generic;
 
         }
     }
- }
+
+    public void Hide()
+    {
+        Color currentColor = gameObject.GetComponent<Renderer>().material.color;
+        gameObject.GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, 0);
+   
+    }
+}

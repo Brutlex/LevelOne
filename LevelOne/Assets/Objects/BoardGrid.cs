@@ -1,5 +1,7 @@
 ﻿
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BoardGrid
@@ -7,7 +9,7 @@ public class BoardGrid
     private GridCell[,] gridCellArr;
     private Sprite cellSprite;
 
-    private GridCell.CellType[] colors = { GridCell.CellType.Yellow, GridCell.CellType.Blue, GridCell.CellType.Green };
+    private GridCell.CellType[] colors = { GridCell.CellType.Yellow, GridCell.CellType.Blue, GridCell.CellType.Green, GridCell.CellType.Red, GridCell.CellType.Cyan };
 
     public BoardGrid(int gridSize, int blackCells, Sprite cellSprite)
     {
@@ -49,9 +51,32 @@ public class BoardGrid
         return gridCell;
     }
 
+
     public GridCell[,] getCellGrid()
     {
         return gridCellArr;
+    }
+
+    public List<GridCell>[] getColorLists()
+    {
+        List<GridCell>[] colorLists = new List<GridCell>[colors.Length];
+
+        for (int k = 0; k < colorLists.Length; k++)
+        {
+            List<GridCell> list = new List<GridCell>();
+            for (int i = 0; i < gridCellArr.GetLength(0); i++)
+            {
+                for (int j = 0; j < gridCellArr.GetLength(1); j++)
+                {
+                    if (gridCellArr[i, j].getCellType() == colors[k])
+                    {
+                        list.Add(gridCellArr[i, j]);
+                    }
+                }
+            }
+            colorLists[k] = list;
+        }
+        return colorLists;
     }
 
     private void AutoGenerateGrid(int gridSize, int blackCellAmount, Sprite cellSprite)

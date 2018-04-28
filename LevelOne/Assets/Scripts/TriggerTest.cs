@@ -7,18 +7,18 @@ public class TriggerTest : MonoBehaviour {
     private bool triggered = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Contact was made!");
+        //Debug.Log("Contact was made!");
         triggered = true;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Contact!");
+        //Debug.Log("Contact!");
         triggered = true;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Contact broken!");
+        //Debug.Log("Contact broken!");
         triggered = false;
 
     }
@@ -27,13 +27,13 @@ public class TriggerTest : MonoBehaviour {
         if (triggered == true)
             {
             Color color = gameObject.GetComponent<Renderer>().material.color;
-            if (color.a < 0.01)
+            if (color.a < 0.1)
             {
                 Debug.Log("Game over!");
                 GameController.instance.GameOver();
             }
 
-            gameObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1); //red
+           // gameObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1); //red
 
 
         }

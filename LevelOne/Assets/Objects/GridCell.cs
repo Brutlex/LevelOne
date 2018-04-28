@@ -12,6 +12,7 @@ public class GridCell
     GameObject cellTile;
     SpriteRenderer sr;
 
+    private ColourController colourController;
 
 
     public enum CellType {Yellow, Red, Green, Blue, Cyan, Magenta, Black, White}
@@ -78,6 +79,22 @@ public class GridCell
         sr.sprite = this.cellSprite;//tileSprite;//assign tile sprite
         //cellTile.transform.position = new Vector2(cellPos.x -(gridSize / 2 - 0.5f), cellPos.y - (gridSize/2 - 0.5f));
         cellTile.transform.position = new Vector2(posX, posY);
+        colourController = cellTile.AddComponent<ColourController>();
+        cellTile.AddComponent<TriggerTest>();
+        BoxCollider2D boxCollider = cellTile.AddComponent<BoxCollider2D>();
+        boxCollider.isTrigger = true;
+        if (cellType != CellType.Black && cellType != CellType.White)
+        {
+            colourController.Hide();
+        }
+    }
+
+    public void RecalculatePosition(int gridSize)
+    {
+        float res = (float)(Screen.height) / Screen.width;
+        float posX = (cellPos.x - (float)(gridSize) / 2 + 0.5f) * 0.6f * res * (20.0f / gridSize);
+        float posY = (cellPos.y - (float)(gridSize) / 2 + 0.5f) * 0.6f * res * (20.0f / (float)gridSize);
+        cellTile.transform.position = new Vector2(posX, posY);
     }
 
     public void RenderCellTile(CellType cellType)
@@ -109,6 +126,17 @@ public class GridCell
                 sr.color = Color.black;
                 break;
         }
+    }
+
+    public void FadeOut()
+    {
+        colourController.StartShake();
+    }
+
+    public void FadeIn(int gridSize)
+    {
+        RecalculatePosition(gridSize);
+        colourController.FadeIn();
     }
 
 }
