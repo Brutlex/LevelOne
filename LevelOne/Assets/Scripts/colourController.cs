@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
  using UnityEngine;
- using System.Collections;
  
- public class colourController : MonoBehaviour {
+ public class ColourController : MonoBehaviour {
      public Color color = Color.black;
     private bool fadeIn = false;
     private bool fadeOut = false;
