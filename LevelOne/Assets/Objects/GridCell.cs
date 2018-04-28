@@ -130,13 +130,15 @@ public class GridCell
 
     public void FadeOut()
     {
-        colourController.StartShake();
+        //colourController.StartShake();
+        colourController.FadeOut();
     }
 
     public void FadeIn(int gridSize)
     {
         RecalculatePosition(gridSize);
-        colourController.FadeIn();
+        //colourController.FadeIn();
+        colourController.Show();
     }
 
 }

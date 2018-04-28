@@ -9,8 +9,7 @@ public class BoardGrid
     private GridCell[,] gridCellArr;
     private Sprite cellSprite;
 
-    private GridCell.CellType[] colors = { GridCell.CellType.Yellow, GridCell.CellType.Blue, GridCell.CellType.Green, GridCell.CellType.Red, GridCell.CellType.Cyan };
-
+    private GridCell.CellType[] colors = { GridCell.CellType.Yellow, GridCell.CellType.Blue, GridCell.CellType.Red, GridCell.CellType.Green };
     public BoardGrid(int gridSize, int blackCells, Sprite cellSprite)
     {
         gridCellArr = new GridCell[gridSize, gridSize];

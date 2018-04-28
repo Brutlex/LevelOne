@@ -5,17 +5,15 @@ using UnityEngine;
 public class InitBoard : MonoBehaviour {
 
     public Sprite initialCellSprite;
-    public int gridSize;
+    public int gridSize = 8;
+    public int blackTiles = 4;
 
     private List<GridCell>[] colorLists;
-    private float startTime;
+    private AudioSource audio;
 
-	// Use this for initialization
-	void Start () {
-        gridSize = 8;
-
-
-        BoardGrid boardGrid = new BoardGrid(gridSize, 4, initialCellSprite);
+    // Use this for initialization
+    void Start () {
+        BoardGrid boardGrid = new BoardGrid(gridSize, blackTiles, initialCellSprite);
 
         for(int i = 0; i < gridSize; i++)
         {
@@ -28,27 +26,29 @@ public class InitBoard : MonoBehaviour {
 
         colorLists = boardGrid.getColorLists();
 
-        startTime = Time.time;
-	}
+        audio = gameObject.GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        float timePassed = Time.time - startTime;
+        float timePassed = audio.time / 60 * 120;
         int timePassedInt = (int)timePassed;
 
+        int activeTime = 1;
         int numColors = colorLists.Length;
-        int interval = numColors * 2;
+        int interval = numColors * activeTime;
+        
 
         for (int i = 0; i < numColors; i++)
         {
-            if (timePassedInt % interval == i*2 % interval)
+            if (timePassedInt % interval == (i*activeTime) % interval)
             {
                 foreach (GridCell cell in colorLists[i])
                 {
                     cell.FadeIn(gridSize);
                 }
             }
-            else if (timePassedInt % interval == (i*2+2) % interval)
+            else if (timePassedInt % interval == (i*activeTime+activeTime) % interval)
             {
                 foreach (GridCell cell in colorLists[i])
                 {
