@@ -6,30 +6,22 @@ public class PlayerController : MonoBehaviour {
 
     public float speed = 1.0f;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+		if (Input.GetKey(KeyCode.A))
         {
-            gameObject.transform.Translate(0, -2, 0);
+            transform.Translate(-Vector2.right * speed);
         }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
-            gameObject.transform.Translate(0, 2, 0);
+            transform.Translate(Vector2.up * speed);
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.S))
         {
-            gameObject.transform.Translate(2, 0, 0);
+            transform.Translate(-Vector2.up * speed);
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.D))
         {
-            gameObject.transform.Translate(-2, 0, 0);
+            transform.Translate(Vector2.right * speed);
         }
     }
 }
