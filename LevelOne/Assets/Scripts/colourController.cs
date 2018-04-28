@@ -7,6 +7,8 @@ using System.Collections.Generic;
      public Color color = Color.black;
     private bool fadeIn = false;
     private bool fadeOut = false;
+    private bool shake = false;
+    private int shakeCount = 0;
 
     private float startTime;
     private float minimum = 0.0f;
@@ -51,7 +53,46 @@ using System.Collections.Generic;
             fadeOut = true;
             startTime = Time.time;
         }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            shake = true;
+            shakeCount = 0;
+            startTime = Time.time;
+        }
 
+        if (shake)
+        {
+            Shake();
+        }
+        Fade();
+    }
+
+    private void Shake()
+    {
+        float t = Time.time - startTime;
+        if (t > 1)
+        {
+            shake = false;
+            fadeIn = false;
+            fadeOut = true;
+            startTime = Time.time;
+        }
+
+        if(shakeCount%8 == 0)
+        {
+            transform.Translate(Vector2.right * 0.2f);
+            transform.Translate(Vector2.up * 0.1f);
+        } else if (shakeCount%4 == 0)
+        {
+            transform.Translate(Vector2.left * 0.2f);
+            transform.Translate(Vector2.down * 0.1f);
+        }
+        shakeCount++;
+
+    }
+
+    private void Fade()
+    {
         if (fadeIn || fadeOut)
         {
             float t = (Time.time - startTime) / duration;
@@ -59,14 +100,16 @@ using System.Collections.Generic;
             {
                 fadeIn = false;
                 fadeOut = false;
-            } else
+            }
+            else
             {
                 float min, max;
                 if (fadeIn)
                 {
                     min = minimum;
                     max = maximum;
-                } else
+                }
+                else
                 {
                     min = maximum;
                     max = minimum;
@@ -74,7 +117,7 @@ using System.Collections.Generic;
                 Color currentColor = gameObject.GetComponent<Renderer>().material.color;
                 gameObject.GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, Mathf.SmoothStep(min, max, t));
             }
-            
+
         }
     }
  }
