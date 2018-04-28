@@ -10,7 +10,7 @@ public class InitBoard : MonoBehaviour {
 	void Start () {
         Camera mainCam = gameObject.GetComponent("Main Camera") as Camera;
 
-        BoardGrid boardGrid = new BoardGrid(10, initialCellSprite);
+        BoardGrid boardGrid = new BoardGrid(10, 6, initialCellSprite);
 	}
 	
 	// Update is called once per frame

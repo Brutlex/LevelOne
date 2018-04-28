@@ -30,6 +30,7 @@ public class TriggerTest : MonoBehaviour {
             if (color.a < 0.01)
             {
                 Debug.Log("Game over!");
+                GameController.instance.GameOver();
             }
 
             gameObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1); //red

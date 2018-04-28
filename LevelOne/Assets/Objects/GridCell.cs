@@ -12,7 +12,7 @@ public class GridCell  {
     SpriteRenderer sr;
 
 
-    public enum CellType {Yellow, Red, Green, Blue, Black}
+    public enum CellType {Yellow, Red, Green, Blue, Cyan, Magenta, Black, White}
 
     public GridCell(CellType cellType, Vector2 cellPos, int size, Sprite cellSprite)
     {
@@ -28,7 +28,7 @@ public class GridCell  {
     public void InitGridCell()
     {
         CreateCellTile(10);
-        RenderCellTile(CellType.Red);
+        RenderCellTile(cellType);
     }
 
     public CellType getCellType()
@@ -87,6 +87,15 @@ public class GridCell  {
                 break;
             case CellType.Yellow:
                 sr.color = Color.yellow;
+                break;
+            case CellType.White:
+                sr.color = Color.white;
+                break;
+            case CellType.Cyan:
+                sr.color = Color.cyan;
+                break;
+            case CellType.Magenta:
+                sr.color = Color.magenta;
                 break;
             default:
                 sr.color = Color.black;
