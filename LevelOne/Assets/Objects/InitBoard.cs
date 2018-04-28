@@ -11,13 +11,13 @@ public class InitBoard : MonoBehaviour {
     private List<GridCell>[] colorLists;
     private AudioSource audio;
 
-
     public BoardGrid boardGrid;
 
     // Use this for initialization
     void Start () {
 
-        boardGrid = new BoardGrid(gridSize, blackTiles, initialCellSprite);
+        boardGrid =new BoardGrid(gridSize, blackTiles, initialCellSprite);
+
 
         for(int i = 0; i < gridSize; i++)
         {
