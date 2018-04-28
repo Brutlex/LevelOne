@@ -11,19 +11,13 @@ public class InitBoard : MonoBehaviour {
     private List<GridCell>[] colorLists;
     private AudioSource audio;
 
-<<<<<<< HEAD
+
     public BoardGrid boardGrid;
 
     // Use this for initialization
     void Start () {
-        gridSize = 8;
 
         boardGrid = new BoardGrid(gridSize, blackTiles, initialCellSprite);
-=======
-    // Use this for initialization
-    void Start () {
-        BoardGrid boardGrid = new BoardGrid(gridSize, blackTiles, initialCellSprite);
->>>>>>> 726acc100acd1500861d6295e573d61a5d80746b
 
         for(int i = 0; i < gridSize; i++)
         {
@@ -36,16 +30,9 @@ public class InitBoard : MonoBehaviour {
 
         colorLists = boardGrid.getColorLists();
 
-<<<<<<< HEAD
-
-        audio = gameObject.GetComponent<AudioSource>();
-    }
-
-=======
         audio = gameObject.GetComponent<AudioSource>();
     }
 	
->>>>>>> 726acc100acd1500861d6295e573d61a5d80746b
 	// Update is called once per frame
 	void Update () {
         float timePassed = audio.time / 60 * 120;
