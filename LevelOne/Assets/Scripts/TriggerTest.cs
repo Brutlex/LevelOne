@@ -32,15 +32,6 @@ public class TriggerTest : MonoBehaviour {
                 Debug.Log("Game over!");
                 GameController.instance.GameOver();
             }
-
-           // gameObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1); //red
-
-
-        }
-        else
-        {
-            //gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 1); //black
-
         }
     }
  }

@@ -21,6 +21,11 @@ public class InitBoard : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        gridSize = GameController.instance.gridSize;
+        blackTiles = GameController.instance.blackTiles;
+        colorsAndBeat = GameController.instance.colorsAndBeat;
+        audioSpeed = GameController.instance.speed;
+
         boardGrid = new BoardGrid(gridSize, blackTiles, colorsAndBeat, initialCellSprite);
         Manager.boardGrid = boardGrid;
 
@@ -30,7 +35,23 @@ public class InitBoard : MonoBehaviour {
             {
                 boardGrid.getCellGrid()[i, j].CreateCellTile(gridSize);
                 boardGrid.getCellGrid()[i, j].RenderCellTile(boardGrid.getCellGrid()[i, j].getCellType());
+                if(i == gridSize-1 && j == gridSize-1)
+                {
+                    boardGrid.getCellGrid()[i, j].AddFinishScript();
+                }
             }
+        }
+
+        //adapt fading duration for small color numbers
+        if(colorsAndBeat <= 2 && audioSpeed >= 135)
+        {
+            ColourController.duration = 0.3f;
+        } else if (colorsAndBeat <= 3)
+        {
+            ColourController.duration = 0.5f;
+        } else
+        {
+            ColourController.duration = 1f;
         }
 
         colorLists = boardGrid.getColorLists(colorsAndBeat);

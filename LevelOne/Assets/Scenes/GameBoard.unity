@@ -463,10 +463,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialCellSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  gridSize: 12
-  blackTiles: 6
-  colorsAndBeat: 3
-  audioSpeed: 135
+  gridSize: 8
+  blackTiles: 4
+  colorsAndBeat: 2
+  audioSpeed: 120
   fourBeat:
   - {fileID: 8300000, guid: 90ab95a5f7a2f1944b8f030ed588de5c, type: 3}
   - {fileID: 8300000, guid: 74fd71ce1c3b77e40b3866552da7ee86, type: 3}

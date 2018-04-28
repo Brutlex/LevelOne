@@ -75,8 +75,8 @@ public class GridCell
     {
         float res = (float)(Screen.height) / Screen.width;
         float dist = (float)Screen.height / gridSize;
-        float posX = (cellPos.x - (float)(gridSize) / 2 + 0.5f) *  0.6f *res* (20.0f / gridSize);
-        float posY = (cellPos.y - (float)(gridSize) / 2 + 0.5f) * 0.6f*res*(20.0f/ (float)gridSize);
+        float posX = (cellPos.x - (float)(gridSize) / 2 + 0.5f) *  0.6f *res* (20.0f / gridSize) * 1.6f;
+        float posY = (cellPos.y - (float)(gridSize) / 2 + 0.5f) * 0.6f*res*(20.0f/ (float)gridSize) * 1.6f;
         cellTile = new GameObject("tile" + cellPos.x.ToString() + "_" + cellPos.y.ToString());
         cellTile.transform.localScale = new Vector2(3.2f*(20.0f/gridSize),3.2f*(20.0f/gridSize));
         sr = cellTile.AddComponent<SpriteRenderer>();//add a sprite renderer
@@ -96,9 +96,14 @@ public class GridCell
     public void RecalculatePosition(int gridSize)
     {
         float res = (float)(Screen.height) / Screen.width;
-        float posX = (cellPos.x - (float)(gridSize) / 2 + 0.5f) * 0.6f * res * (20.0f / gridSize);
-        float posY = (cellPos.y - (float)(gridSize) / 2 + 0.5f) * 0.6f * res * (20.0f / (float)gridSize);
+        float posX = (cellPos.x - (float)(gridSize) / 2 + 0.5f) * 0.6f * res * (20.0f / gridSize) * 1.6f;
+        float posY = (cellPos.y - (float)(gridSize) / 2 + 0.5f) * 0.6f * res * (20.0f / (float)gridSize) * 1.6f;
         cellTile.transform.position = new Vector2(posX, posY);
+    }
+
+    public void AddFinishScript()
+    {
+        cellTile.AddComponent<TriggerFinish>();
     }
 
     public void RenderCellTile(CellType cellType)
