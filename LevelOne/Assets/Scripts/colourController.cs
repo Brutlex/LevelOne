@@ -5,6 +5,14 @@ using System.Collections.Generic;
  
  public class colourController : MonoBehaviour {
      public Color color = Color.black;
+    private bool fadeIn = false;
+    private bool fadeOut = false;
+
+    private float startTime;
+    private float minimum = 0.0f;
+    private float maximum = 1.0f;
+    public float duration = 1.0f;
+
 
 
     void Update()
@@ -30,6 +38,43 @@ using System.Collections.Generic;
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 1); //black
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            fadeOut = false;
+            fadeIn = true;
+            startTime = Time.time;
+        }
+        if (Input.GetKeyDown(KeyCode.Minus))
+        {
+            fadeIn = false;
+            fadeOut = true;
+            startTime = Time.time;
+        }
+
+        if (fadeIn || fadeOut)
+        {
+            float t = (Time.time - startTime) / duration;
+            if (t > 1)
+            {
+                fadeIn = false;
+                fadeOut = false;
+            } else
+            {
+                float min, max;
+                if (fadeIn)
+                {
+                    min = minimum;
+                    max = maximum;
+                } else
+                {
+                    min = maximum;
+                    max = minimum;
+                }
+                Color currentColor = gameObject.GetComponent<Renderer>().material.color;
+                gameObject.GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, Mathf.SmoothStep(min, max, t));
+            }
+            
         }
     }
  }
