@@ -21,4 +21,9 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void GameOver()
+    {
+
+    }
 }

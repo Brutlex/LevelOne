@@ -26,11 +26,19 @@ public class TriggerTest : MonoBehaviour {
  {
         if (triggered == true)
             {
+            Color color = gameObject.GetComponent<Renderer>().material.color;
+            if (color.a < 0.01)
+            {
+                Debug.Log("Game over!");
+            }
+
             gameObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1); //red
+
+
         }
         else
         {
-            gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 1); //black
+            //gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 1); //black
 
         }
     }
