@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
+    public static GameController instance;
+
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+		if (instance == null)
+        {
+            instance = this;
+        } else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
 	}
 	
 	// Update is called once per frame
