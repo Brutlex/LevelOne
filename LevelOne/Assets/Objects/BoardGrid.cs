@@ -103,9 +103,9 @@ public class BoardGrid
                 }
             }
         }
-        catch
+        catch (Exception e)
         {
-
+            Debug.Log(e.ToString());
         }
     }
 
@@ -156,6 +156,10 @@ public class BoardGrid
         //calculate path positions
         int distance = path.Length / (onPath + 1);
         int variance = distance / 2 - 1;
+        if (variance < 0)
+        {
+            variance = 0;
+        }
 
         for (int i = 0; i < onPath; i++)
         {

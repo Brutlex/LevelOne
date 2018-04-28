@@ -9,9 +9,9 @@ public class InitBoard : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        gridSize = 3;
+        gridSize = 8;
 
-        BoardGrid boardGrid = new BoardGrid(gridSize, 6, initialCellSprite);
+        BoardGrid boardGrid = new BoardGrid(gridSize, 4, initialCellSprite);
 
         for(int i = 0; i < gridSize; i++)
         {
