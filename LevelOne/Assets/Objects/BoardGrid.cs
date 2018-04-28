@@ -9,12 +9,12 @@ public class BoardGrid
     private GridCell[,] gridCellArr;
     private Sprite cellSprite;
 
-    private GridCell.CellType[] colors = { GridCell.CellType.Yellow, GridCell.CellType.Blue, GridCell.CellType.Red, GridCell.CellType.Green };
-    public BoardGrid(int gridSize, int blackCells, Sprite cellSprite)
+    private GridCell.CellType[] colors = { GridCell.CellType.Yellow, GridCell.CellType.Blue, GridCell.CellType.Red, GridCell.CellType.Green, GridCell.CellType.Cyan, GridCell.CellType.Magenta };
+    public BoardGrid(int gridSize, int blackCells, int colorsAndBeat, Sprite cellSprite)
     {
         gridCellArr = new GridCell[gridSize, gridSize];
         this.cellSprite = cellSprite;
-        AutoGenerateGrid(gridSize, blackCells, cellSprite);
+        AutoGenerateGrid(gridSize, blackCells, colorsAndBeat, cellSprite);
     }
 
     public void setGridCell(GridCell gridCell, int idxX, int idxY)
@@ -61,9 +61,9 @@ public class BoardGrid
         return gridCellArr;
     }
 
-    public List<GridCell>[] getColorLists()
+    public List<GridCell>[] getColorLists(int colorSize)
     {
-        List<GridCell>[] colorLists = new List<GridCell>[colors.Length];
+        List<GridCell>[] colorLists = new List<GridCell>[colorSize];
 
         for (int k = 0; k < colorLists.Length; k++)
         {
@@ -83,7 +83,7 @@ public class BoardGrid
         return colorLists;
     }
 
-    private void AutoGenerateGrid(int gridSize, int blackCellAmount, Sprite cellSprite)
+    private void AutoGenerateGrid(int gridSize, int blackCellAmount, int colorsAmount, Sprite cellSprite)
     {
         try
         {
@@ -104,7 +104,7 @@ public class BoardGrid
             }
 
             // create cells on path
-            int currentColorIndex = rnd.Next(0, colors.Length);
+            int currentColorIndex = rnd.Next(0, colorsAmount);
             foreach (Point pathPoint in path)
             {
                 int i = pathPoint.getX();
@@ -112,11 +112,11 @@ public class BoardGrid
                 if (gridCellArr[i, j] == null)
                 {
                     gridCellArr[i, j] = new GridCell(colors[currentColorIndex], new UnityEngine.Vector2(i, j), 0, cellSprite);
-                    currentColorIndex = (currentColorIndex+1) % colors.Length;
+                    currentColorIndex = (currentColorIndex+1) % colorsAmount;
                 }
                 else
                 {
-                    currentColorIndex = rnd.Next(0, colors.Length);
+                    currentColorIndex = rnd.Next(0, colorsAmount);
                 }
             }
 
@@ -126,7 +126,7 @@ public class BoardGrid
                 {
                     if(gridCellArr[i, j] == null)
                     {
-                        currentColorIndex = rnd.Next(0, colors.Length);
+                        currentColorIndex = rnd.Next(0, colorsAmount);
                         gridCellArr[i, j] = new GridCell(colors[currentColorIndex], new UnityEngine.Vector2(i, j), 0, cellSprite);
                     }
                 }

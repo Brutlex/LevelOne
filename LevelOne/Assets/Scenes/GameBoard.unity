@@ -190,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.15
   continousMovement: 0
+  position: {x: 0, y: 0}
 --- !u!212 &642874096
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -379,8 +380,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 90ab95a5f7a2f1944b8f030ed588de5c, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: b6ff2b1d73c4984418dafec9463bf885, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -464,3 +465,13 @@ MonoBehaviour:
   initialCellSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   gridSize: 12
   blackTiles: 6
+  colorsAndBeat: 3
+  audioSpeed: 135
+  fourBeat:
+  - {fileID: 8300000, guid: 90ab95a5f7a2f1944b8f030ed588de5c, type: 3}
+  - {fileID: 8300000, guid: 74fd71ce1c3b77e40b3866552da7ee86, type: 3}
+  - {fileID: 8300000, guid: 6a35fbc82323d2f49b08e84a9c5bd858, type: 3}
+  twoBeat:
+  - {fileID: 8300000, guid: b6ff2b1d73c4984418dafec9463bf885, type: 3}
+  - {fileID: 8300000, guid: 4a2ab6ed4fe63aa408a9fcaad44ee9b8, type: 3}
+  - {fileID: 8300000, guid: b82dda485d321e54899bb1f78d0c1d69, type: 3}
