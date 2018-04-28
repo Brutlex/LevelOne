@@ -47,6 +47,11 @@ public class BoardGrid
         return gridCell;
     }
 
+    public GridCell[,] getCellGrid()
+    {
+        return gridCellArr;
+    }
+
     private void AutoGenerateGrid(int gridSize, Sprite cellSprite)
     {
         try

@@ -1,7 +1,8 @@
 ﻿
 using UnityEngine;
 
-public class GridCell  {
+public class GridCell
+{
 
     private CellType cellType;
     private int width;
@@ -12,7 +13,7 @@ public class GridCell  {
     SpriteRenderer sr;
 
 
-    public enum CellType {Yellow, Red, Green, Blue, Black}
+    public enum CellType { Yellow, Red, Green, Blue, Black }
 
     public GridCell(CellType cellType, Vector2 cellPos, int size, Sprite cellSprite)
     {
@@ -21,14 +22,6 @@ public class GridCell  {
         this.height = size;
         this.cellPos = cellPos;
         this.cellSprite = cellSprite;
-
-        InitGridCell();
-    }
-
-    public void InitGridCell()
-    {
-        CreateCellTile(10);
-        RenderCellTile(CellType.Red);
     }
 
     public CellType getCellType()
@@ -61,15 +54,19 @@ public class GridCell  {
         this.cellSprite = cellSprite;
     }
 
-    private void CreateCellTile(int tileSize)
-    {      
-
+    public void CreateCellTile(int gridSize)
+    {
+        float res = (float)(Screen.height) / Screen.width;
+        float dist = (float)Screen.height / gridSize;
+        float posX = (cellPos.x - (float)(gridSize) / 2 + 0.5f) *  0.6f *res* (20.0f / gridSize);
+        float posY = (cellPos.y - (float)(gridSize) / 2 + 0.5f) * 0.6f*res*(20.0f/ (float)gridSize);
         cellTile = new GameObject("tile" + cellPos.x.ToString() + "_" + cellPos.y.ToString());
-        cellTile.transform.localScale = Vector2.one * (tileSize - 3);
+        cellTile.transform.localScale = new Vector2(3.2f*(20.0f/gridSize),3.2f*(20.0f/gridSize));
         sr = cellTile.AddComponent<SpriteRenderer>();//add a sprite renderer
         sr.size = new Vector2(10, 10);
         sr.sprite = this.cellSprite;//tileSprite;//assign tile sprite
-        cellTile.transform.position = new Vector2(cellPos.x-5, cellPos.y-5);        
+        //cellTile.transform.position = new Vector2(cellPos.x -(gridSize / 2 - 0.5f), cellPos.y - (gridSize/2 - 0.5f));
+        cellTile.transform.position = new Vector2(posX, posY);
     }
 
     public void RenderCellTile(CellType cellType)
