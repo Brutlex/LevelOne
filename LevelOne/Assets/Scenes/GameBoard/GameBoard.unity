@@ -188,14 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56690530f54d44f41a3afa8df169aa87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:LevelOne/Assets/Scenes/GameBoard.unity:LevelOne/Assets/Scenes/GameBoard.unity
-  speed: 1.15
-  continousMovement: 0
-=======
   speed: 1.12
   continousMovement: 0
   position: {x: 0, y: 0}
->>>>>>> 726acc100acd1500861d6295e573d61a5d80746b:LevelOne/Assets/Scenes/GameBoard/GameBoard.unity:LevelOne/Assets/Scenes/GameBoard/GameBoard.unity
 --- !u!212 &642874096
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -357,7 +352,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 0
+  m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -468,10 +463,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialCellSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-<<<<<<< HEAD:LevelOne/Assets/Scenes/GameBoard.unity:LevelOne/Assets/Scenes/GameBoard.unity
-  gridSize: 12
-  blackTiles: 6
-=======
-  gridSize: 0
+  gridSize: 8
   blackTiles: 4
->>>>>>> 726acc100acd1500861d6295e573d61a5d80746b:LevelOne/Assets/Scenes/GameBoard/GameBoard.unity:LevelOne/Assets/Scenes/GameBoard/GameBoard.unity

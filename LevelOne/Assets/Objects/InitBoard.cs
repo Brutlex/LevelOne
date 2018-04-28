@@ -16,8 +16,8 @@ public class InitBoard : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        boardGrid =new BoardGrid(gridSize, blackTiles, initialCellSprite);
-
+        boardGrid = new BoardGrid(gridSize, blackTiles, initialCellSprite);
+        Manager.boardGrid = boardGrid;
 
         for(int i = 0; i < gridSize; i++)
         {
