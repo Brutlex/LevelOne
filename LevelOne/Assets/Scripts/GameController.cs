@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour {
         Time.timeScale = 1f;
     }
 
-    public static void ResetLevel()
+    public void ResetLevel()
     {
         Manager.level = 1;
         Manager.gridSize = 4;
