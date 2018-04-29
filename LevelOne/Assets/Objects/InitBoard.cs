@@ -11,8 +11,9 @@ public class InitBoard : MonoBehaviour {
     public int colorsAndBeat = 2;
     public int audioSpeed = 120;
 
-    public AudioClip[] fourBeat;
     public AudioClip[] twoBeat;
+    public AudioClip[] threeBeat;
+    public AudioClip[] fourBeat;
 
     private List<GridCell>[] colorLists;
     private AudioSource audio;
@@ -69,7 +70,11 @@ public class InitBoard : MonoBehaviour {
         if(colorsAndBeat == 2)
         {
             audio.clip = twoBeat[audioSpeedIndex];
-        } else if(colorsAndBeat == 4)
+        } else if(colorsAndBeat == 3 || colorsAndBeat == 6)
+        {
+            audio.clip = threeBeat[audioSpeedIndex];
+        }
+        else if (colorsAndBeat == 4)
         {
             audio.clip = fourBeat[audioSpeedIndex];
         }

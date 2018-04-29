@@ -1939,12 +1939,16 @@ MonoBehaviour:
   blackTiles: 4
   colorsAndBeat: 4
   audioSpeed: 150
-  fourBeat:
-  - {fileID: 8300000, guid: 90ab95a5f7a2f1944b8f030ed588de5c, type: 3}
-  - {fileID: 8300000, guid: 74fd71ce1c3b77e40b3866552da7ee86, type: 3}
-  - {fileID: 8300000, guid: 6a35fbc82323d2f49b08e84a9c5bd858, type: 3}
   twoBeat:
   - {fileID: 8300000, guid: b6ff2b1d73c4984418dafec9463bf885, type: 3}
   - {fileID: 8300000, guid: 4a2ab6ed4fe63aa408a9fcaad44ee9b8, type: 3}
   - {fileID: 8300000, guid: b82dda485d321e54899bb1f78d0c1d69, type: 3}
+  threeBeat:
+  - {fileID: 8300000, guid: a6f763b5787dca44197ffa46bfe4810b, type: 3}
+  - {fileID: 8300000, guid: 8a992359e866a2644bfc31ebe684271a, type: 3}
+  - {fileID: 8300000, guid: e1c17710d064b134dba6c394b663f276, type: 3}
+  fourBeat:
+  - {fileID: 8300000, guid: 90ab95a5f7a2f1944b8f030ed588de5c, type: 3}
+  - {fileID: 8300000, guid: 74fd71ce1c3b77e40b3866552da7ee86, type: 3}
+  - {fileID: 8300000, guid: 6a35fbc82323d2f49b08e84a9c5bd858, type: 3}
   levelText: {fileID: 739811750}
