@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
                 newPos.x = boardGrid.getGridCell((int)position.x, (int)position.y).getCellTile().transform.position.x;
                 newPos.y = boardGrid.getGridCell((int)position.x, (int)position.y).getCellTile().transform.position.y;
                 transform.position = newPos;
-                transform.localScale = new Vector2(8.0f/boardGrid.getGridSize(), 8.0f/ boardGrid.getGridSize());
+                transform.localScale = new Vector2(4.0f/boardGrid.getGridSize(), 4.0f/ boardGrid.getGridSize());
                 resized = true;
             }
 
