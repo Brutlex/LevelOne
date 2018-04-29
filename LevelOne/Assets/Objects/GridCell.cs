@@ -132,7 +132,7 @@ public class GridCell
                 sr.color = Color.magenta;
                 break;
             default:
-                sr.color = Color.black;
+                sr.color = new Color(113/255f, 125/255f, 126/255f);
                 break;
         }
     }

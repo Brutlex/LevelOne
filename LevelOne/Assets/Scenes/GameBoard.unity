@@ -1923,7 +1923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6b7f3813afc334c8784d7c515471d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialCellSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  initialCellSprite: {fileID: 21300000, guid: a2ed7401958e5064e8d6ca6d6b12d3f9, type: 3}
   gridSize: 8
   blackTiles: 4
   colorsAndBeat: 4
