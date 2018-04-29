@@ -31,7 +31,6 @@ public class GameController : MonoBehaviour {
         GameOverUI.SetActive(true);
         LevelText.SetActive(false);
         Time.timeScale = 0f;
-        AudioListener.pause = true;
 
     }
 
