@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
+    public GameObject GameOverUI;
+    public GameObject LevelText;
+
     public static GameController instance;
 
 	// Use this for initialization
@@ -25,12 +28,17 @@ public class GameController : MonoBehaviour {
 
     public void GameOver()
     {
-        SceneManager.LoadScene("Scenes/MainMenu");
+        GameOverUI.SetActive(true);
+        LevelText.SetActive(false);
+        Time.timeScale = 0f;
+        
+
     }
 
     public void RestartLevel()
     {
         SceneManager.LoadScene("Scenes/GameBoard");
+        Time.timeScale = 1f;
     }
 
     public void LevelFinished()
