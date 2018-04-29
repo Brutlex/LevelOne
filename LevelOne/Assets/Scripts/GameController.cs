@@ -28,14 +28,31 @@ public class GameController : MonoBehaviour {
         SceneManager.LoadScene("Scenes/MainMenu");
     }
 
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene("Scenes/GameBoard");
+    }
+
     public void LevelFinished()
     {
-        if (Manager.gridSize == 8)
+        Manager.level++;
+        if (Manager.level == 6)
         {
             Manager.gridSize = 6;
             Manager.blackTiles = 2;
+            Manager.speed = 135;
+        } else if (Manager.level == 9)
+        {
+            Manager.gridSize = 6;
+            Manager.blackTiles = 3;
+            Manager.speed = 150;
+        } else if (Manager.level == 12)
+        {
+            Manager.gridSize = 6;
+            Manager.blackTiles = 3;
+            Manager.speed = 120;
             Manager.colorsAndBeat = 4;
-        } else
+        } else 
         {
             Manager.gridSize++;
             if (Manager.gridSize % 2 == 0)
