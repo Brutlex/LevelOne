@@ -21,10 +21,13 @@ public class InitBoard : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        gridSize = GameController.instance.gridSize;
-        blackTiles = GameController.instance.blackTiles;
-        colorsAndBeat = GameController.instance.colorsAndBeat;
-        audioSpeed = GameController.instance.speed;
+
+        gridSize = Manager.gridSize;
+        blackTiles = Manager.blackTiles;
+        colorsAndBeat = Manager.colorsAndBeat;
+        audioSpeed = Manager.speed;
+
+        Debug.Log("startInitBoard: gridsize=" + gridSize);
 
         boardGrid = new BoardGrid(gridSize, blackTiles, colorsAndBeat, initialCellSprite);
         Manager.boardGrid = boardGrid;

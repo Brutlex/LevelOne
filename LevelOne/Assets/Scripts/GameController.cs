@@ -7,11 +7,6 @@ public class GameController : MonoBehaviour {
 
     public static GameController instance;
 
-    public int gridSize = 4;
-    public int blackTiles = 1;
-    public int colorsAndBeat = 2;
-    public int speed = 120;
-
 	// Use this for initialization
 	void Awake () {
 		if (instance == null)
@@ -35,7 +30,20 @@ public class GameController : MonoBehaviour {
 
     public void LevelFinished()
     {
-        gridSize++;
+        if (Manager.gridSize == 8)
+        {
+            Manager.gridSize = 6;
+            Manager.blackTiles = 2;
+            Manager.colorsAndBeat = 4;
+        } else
+        {
+            Manager.gridSize++;
+            if (Manager.gridSize % 2 == 0)
+            {
+                Manager.blackTiles+=2;
+            }
+        }
+
         SceneManager.LoadScene("Scenes/GameBoard");
     }
 }
