@@ -37,9 +37,10 @@ public class GameController : MonoBehaviour {
     {
         SceneManager.LoadScene("Scenes/GameBoard");
         Time.timeScale = 1f;
+        AudioListener.pause = false;
     }
 
-    public static void ResetLevel()
+    public void ResetLevel()
     {
         Manager.level = 1;
         Manager.gridSize = 4;
