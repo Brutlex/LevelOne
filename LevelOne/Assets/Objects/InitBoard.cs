@@ -33,6 +33,7 @@ public class InitBoard : MonoBehaviour {
 
         levelText.text = "Level: " + Manager.level;
         Time.timeScale = 1f;
+        AudioListener.pause = false;
 
         Debug.Log("startInitBoard: gridsize=" + gridSize);
 

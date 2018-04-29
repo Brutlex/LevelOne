@@ -31,12 +31,15 @@ public class GameController : MonoBehaviour {
         GameOverUI.SetActive(true);
         LevelText.SetActive(false);
         Time.timeScale = 0f;
+        AudioListener.pause = true;
+
     }
 
     public void RestartLevel()
     {
         SceneManager.LoadScene("Scenes/GameBoard");
         Time.timeScale = 1f;
+        AudioListener.pause = false;
     }
 
     public void ResetLevel()
