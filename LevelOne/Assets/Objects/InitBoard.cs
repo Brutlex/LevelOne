@@ -53,7 +53,7 @@ public class InitBoard : MonoBehaviour {
         //adapt fading duration for small color numbers
         if(colorsAndBeat <= 2 && audioSpeed >= 135)
         {
-            ColourController.duration = 0.3f;
+            ColourController.duration = 0.4f;
         } else if (colorsAndBeat <= 3)
         {
             ColourController.duration = 0.5f;
