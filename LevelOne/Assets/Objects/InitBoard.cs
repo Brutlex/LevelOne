@@ -31,6 +31,7 @@ public class InitBoard : MonoBehaviour {
         audioSpeed = Manager.speed;
 
         levelText.text = "Level: " + Manager.level;
+        Time.timeScale = 1f;
 
         Debug.Log("startInitBoard: gridsize=" + gridSize);
 
