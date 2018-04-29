@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InitBoard : MonoBehaviour {
 
@@ -16,6 +17,8 @@ public class InitBoard : MonoBehaviour {
     private List<GridCell>[] colorLists;
     private AudioSource audio;
 
+    public Text levelText;
+
     public BoardGrid boardGrid;
 
     // Use this for initialization
@@ -26,6 +29,8 @@ public class InitBoard : MonoBehaviour {
         blackTiles = Manager.blackTiles;
         colorsAndBeat = Manager.colorsAndBeat;
         audioSpeed = Manager.speed;
+
+        levelText.text = "Level: " + Manager.level;
 
         Debug.Log("startInitBoard: gridsize=" + gridSize);
 

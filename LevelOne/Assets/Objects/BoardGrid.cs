@@ -12,6 +12,7 @@ public class BoardGrid
     private GridCell.CellType[] colors = { GridCell.CellType.Yellow, GridCell.CellType.Blue, GridCell.CellType.Red, GridCell.CellType.Green, GridCell.CellType.Cyan, GridCell.CellType.Magenta };
     public BoardGrid(int gridSize, int blackCells, int colorsAndBeat, Sprite cellSprite)
     {
+        ShuffleArray(colors);
         gridCellArr = new GridCell[gridSize, gridSize];
         this.cellSprite = cellSprite;
         AutoGenerateGrid(gridSize, blackCells, colorsAndBeat, cellSprite);
@@ -238,6 +239,20 @@ public class BoardGrid
         }
 
         return false;
+    }
+
+    private void ShuffleArray(GridCell.CellType[] list)
+    {
+        System.Random rnd = new System.Random();
+        int n = list.Length;
+        while (n > 1)
+        {
+            n--;
+            int k = rnd.Next(n + 1);
+            GridCell.CellType value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
     }
 
     //private class containing x and y position needed for initial board calculation

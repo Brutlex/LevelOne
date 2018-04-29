@@ -56,7 +56,6 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                
                 if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) && !(position.x < 1))
                 {
                     position.x -= 1;
@@ -77,7 +76,6 @@ public class PlayerController : MonoBehaviour
                     newPos.x = boardGrid.getGridCell((int)position.x, (int)position.y).getCellTile().transform.position.x;
                     newPos.y = boardGrid.getGridCell((int)position.x, (int)position.y).getCellTile().transform.position.y;
                     transform.position = newPos;
-
                 }
                 if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) && !(position.x >= boardGrid.getGridSize() - 1))
                 {
