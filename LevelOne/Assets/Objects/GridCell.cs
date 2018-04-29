@@ -66,18 +66,22 @@ public class GridCell
         this.cellSprite = cellSprite;
     }
 
+    public GameObject getCellTile()
+    {
+        return this.cellTile;
+    }
+
     public void CreateCellTile(int gridSize)
     {
         float res = (float)(Screen.height) / Screen.width;
         float dist = (float)Screen.height / gridSize;
-        float posX = (cellPos.x - (float)(gridSize) / 2 + 0.5f) *  0.6f *res* (20.0f / gridSize);
-        float posY = (cellPos.y - (float)(gridSize) / 2 + 0.5f) * 0.6f*res*(20.0f/ (float)gridSize);
+        float posX = (cellPos.x - (float)(gridSize) / 2 + 0.5f) *  0.6f *res* (20.0f / gridSize) ;
+        float posY = (cellPos.y - (float)(gridSize) / 2 + 0.5f) * 0.6f*res*(20.0f/ (float)gridSize) ;
         cellTile = new GameObject("tile" + cellPos.x.ToString() + "_" + cellPos.y.ToString());
         cellTile.transform.localScale = new Vector2(3.2f*(20.0f/gridSize),3.2f*(20.0f/gridSize));
         sr = cellTile.AddComponent<SpriteRenderer>();//add a sprite renderer
         sr.size = new Vector2(10, 10);
         sr.sprite = this.cellSprite;//tileSprite;//assign tile sprite
-        //cellTile.transform.position = new Vector2(cellPos.x -(gridSize / 2 - 0.5f), cellPos.y - (gridSize/2 - 0.5f));
         cellTile.transform.position = new Vector2(posX, posY);
         colourController = cellTile.AddComponent<ColourController>();
         cellTile.AddComponent<TriggerTest>();
@@ -92,9 +96,14 @@ public class GridCell
     public void RecalculatePosition(int gridSize)
     {
         float res = (float)(Screen.height) / Screen.width;
-        float posX = (cellPos.x - (float)(gridSize) / 2 + 0.5f) * 0.6f * res * (20.0f / gridSize);
-        float posY = (cellPos.y - (float)(gridSize) / 2 + 0.5f) * 0.6f * res * (20.0f / (float)gridSize);
+        float posX = (cellPos.x - (float)(gridSize) / 2 + 0.5f) * 0.6f * res * (20.0f / gridSize) ;
+        float posY = (cellPos.y - (float)(gridSize) / 2 + 0.5f) * 0.6f * res * (20.0f / (float)gridSize) ;
         cellTile.transform.position = new Vector2(posX, posY);
+    }
+
+    public void AddFinishScript()
+    {
+        cellTile.AddComponent<TriggerFinish>();
     }
 
     public void RenderCellTile(CellType cellType)
@@ -130,13 +139,15 @@ public class GridCell
 
     public void FadeOut()
     {
-        colourController.StartShake();
+        //colourController.StartShake();
+        colourController.FadeOut();
     }
 
     public void FadeIn(int gridSize)
     {
         RecalculatePosition(gridSize);
-        colourController.FadeIn();
+        //colourController.FadeIn();
+        colourController.Show();
     }
 
 }

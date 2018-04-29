@@ -12,7 +12,7 @@ using System.Collections.Generic;
     private float startTime;
     private float minimum = 0.0f;
     private float maximum = 1.0f;
-    public float duration = 1.0f;
+    public static float duration = 1f;
 
 
 
@@ -155,5 +155,12 @@ using System.Collections.Generic;
         Color currentColor = gameObject.GetComponent<Renderer>().material.color;
         gameObject.GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, 0);
    
+    }
+
+    public void Show()
+    {
+        fadeOut = false;
+        Color currentColor = gameObject.GetComponent<Renderer>().material.color;
+        gameObject.GetComponent<Renderer>().material.color = new Color(currentColor.r, currentColor.g, currentColor.b, 1);
     }
 }
