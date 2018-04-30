@@ -1,0 +1,15 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public static class Manager
+{
+    public static BoardGrid boardGrid;
+
+    public static int level = 26;
+
+    public static int gridSize = 7;
+    public static int blackTiles = 3;
+    public static int colorsAndBeat = 4;
+    public static int speed = 135;
+}

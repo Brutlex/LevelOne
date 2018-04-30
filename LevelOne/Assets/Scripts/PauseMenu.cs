@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour {
 
@@ -26,12 +27,15 @@ public class PauseMenu : MonoBehaviour {
     {
         PauseUI.SetActive(false);
         Time.timeScale = 1f;
+        AudioListener.pause = false;
         GamePaused = false;
     }
     void Pause()
     {
         PauseUI.SetActive(true);
         Time.timeScale = 0f;
+        AudioListener.pause = true;
         GamePaused = true;
+
     }
 }

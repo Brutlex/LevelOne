@@ -8,6 +8,7 @@ public class LoadScreenOnClick : MonoBehaviour {
     public void LoadByIndex(int sceneindex)
     {
         SceneManager.LoadScene(sceneindex);
+        AudioListener.pause = false;
     }
 
     public void LoadByname(string scenename)
